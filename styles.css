@@ -33,7 +33,16 @@ padding-top: 20px;
     }
 
 #game_container{
-    /* margin-left: 30px; */
+    padding: 0%;
+    display: flex; 
+    flex-direction: column; 
+
+    align-items: center; 
+    width: 100%;
+}
+
+#button_container{
+    margin: 20px;
 }
 
 #gallow_art{
@@ -52,12 +61,7 @@ padding-top: 20px;
 h5{
     font-size: larger;
     text-align: center;
-    display: block;
-    /* width: 50%;
-    margin-right: auto;
-    margin-left: auto; */
-
-    
+    display: block; 
 }
 
 ul{
@@ -131,3 +135,16 @@ footer{
     padding-right: 30px;
 }
 
+@media(max-width: 768px){ 
+    .grid_container{
+        display: grid;
+        grid-template-columns: 100%;
+    }
+    #game_container{
+        padding: 0%;
+        display: flex; 
+        flex-direction: column; 
+    
+        align-items: center; 
+    }
+}
