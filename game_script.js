@@ -89,7 +89,7 @@ const default_words_hints={
 }
 
 const gallow_art = [
-    "   _______\n" +
+    "   _______        \n" +
     "  |       |\n" +
     "  |\n" +
     "  |\n" +
@@ -97,7 +97,7 @@ const gallow_art = [
     "  |\n" +
     "__|__",
   
-    "   _______\n" +
+    "   _______        \n" +
     "  |       |\n" +
     "  |\n" +
     "  |       |\n" +
@@ -105,7 +105,7 @@ const gallow_art = [
     "  |\n" +
     "__|__",
   
-    "   _______\n" +
+    "   _______        \n" +
     "  |       |\n" +
     "  |\n" +
     "  |      /|\n" +
@@ -113,7 +113,7 @@ const gallow_art = [
     "  |\n" +
     "__|__",
   
-    "   _______\n" +
+    "   _______        \n" +
     "  |       |\n" +
     "  |\n" +
     "  |      /|\\\n" +
@@ -121,7 +121,7 @@ const gallow_art = [
     "  |\n" +
     "__|__",
   
-    "   _______\n" +
+    "   _______        \n" +
     "  |       |\n" +
     "  |\n" +
     "  |      /|\\\n" +
@@ -129,7 +129,7 @@ const gallow_art = [
     "  |\n" +
     "__|__",
   
-    "   _______\n" +
+    "   _______        \n" +
     "  |       |\n" +
     "  |\n" +
     "  |      /|\\\n" +
@@ -137,12 +137,30 @@ const gallow_art = [
     "  |\n" +
     "__|__",
   
-    "   _______\n" +
+    "   _______        \n" +
     "  |       |\n" +
     "  |       O\n" +
     "  |      /|\\\n" +
     "  |      / \\\n" +
     "  |\n" +
+    "__|__",
+
+    // Win frame 1
+    "   _______        \n" +
+    "  |       |\n" +
+    "  |\n" +
+    "  |\n" +
+    "  |          O\n" +
+    "  |         /|\\\n" +
+    "__|__       / \\",
+
+    // Win frame 2
+    "   _______        \n" +
+    "  |       |\n" +
+    "  |        Hooray!\n" +
+    "  |         \\O/\n" +
+    "  |          |\n" +
+    "  |         / \\\n"+
     "__|__"
   ];
 
@@ -206,7 +224,7 @@ function initialiseDataAndDisplay(){
 }
 
 function buildGuessWord(new_letter){
-
+//we need the new letter var here because the function is called for checking the guess validity before the letter is added to guessed letter
     available_letters = guessedLetters.concat(new_letter)
 
     return word.split("").map((letter) => (available_letters.includes(letter) ? letter : "_")).join(" ")
@@ -219,6 +237,25 @@ function updateDisplayedWord(new_character){
 function showHint(){
     hint = words_hints[(word.toLowerCase())]
     web_hint.textContent = ("Hint: " + hint)
+}
+
+
+
+function animateGallowArt(){
+    frame1 = gallow_art[7]
+    frame2 = gallow_art[8]
+
+    showFrame1 = true
+        setInterval(
+            ()=>{
+                if (showFrame1){
+                    web_gallow_art.textContent = frame1;
+                    showFrame1 = false
+                } else {
+                    web_gallow_art.textContent = frame2;
+                    showFrame1 = true
+                }
+            }, 1000)
 }
 
 // kinda like grouping consts with enum 
@@ -292,6 +329,7 @@ function handleClick(){
         case GuessResult.CORRECT_FINAL:
             game_ended = true
             message.textContent = "Congratulations! You Won!"
+            animateGallowArt()
             break;
 
         case GuessResult.INCORRECT_FINAL:
@@ -307,7 +345,6 @@ function handleClick(){
     }
 
     guessedLetters.push(inputValue)
-    console.log(guessedLetters)
     letterInput.value = ""
 } 
 
