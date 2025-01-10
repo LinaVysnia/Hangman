@@ -13,19 +13,37 @@
     </header>
     <main>
         <div class = "grid_container">
-            <img src="https://play-lh.googleusercontent.com/Eg8Swxv4VMMs-l8r0yzCDVX-Mr6RZiztBFieLfdjH9c5Apn4BoOJT4sMC5Vx5gNnfg" id = "main_img" alt="Hangman banner" />
-            <div id = "game_container">
-                <p id="word"></p>
-                <input type="text" id="letterInput" placeholder="Type a letter here" />
-                <button type="button" id="submitButton" >Submit</button>
-                <button type="button" id="refreshButton" >New game</button>
+            <ul id = "game_container">
+                <li>
+                    <p id="word"></p>
+                </li>
+                <li>
+                    <input type="text" id="letterInput" placeholder="Type a letter here" />
+                </li>
+                <li>
+                    <div id = "button_container">
+                        <button type="button" id="submitButton" >Submit</button>
+                        <button type="button" id="hintButton" >Hint</button>
+                        <button type="button" id="refreshButton" >New game</button>
+                    </div>
+                </li>
+                <li>
+                    <p id = "message"></p>
+                </li>
+                <li>
+                    <p id = "remaining_fails"></p>
+                </li>
+                <li>
+                    <p id = "gallow_art"></p>
+                </li>
+                <li>
+                    <p id = "hint"></p>
+                </li>
+            </ul>
+            <script type="text/javascript" src="game_script.js"></script>
             
-                <p id = "message"></p>
-                <p id = "remaining_fails"></p>
-                <p id = "gallow_art"></p>
-    
-                <script type="text/javascript" src="game_script.js"></script>
-            </div>
+            <img src="https://play-lh.googleusercontent.com/Eg8Swxv4VMMs-l8r0yzCDVX-Mr6RZiztBFieLfdjH9c5Apn4BoOJT4sMC5Vx5gNnfg" id = "main_img" alt="Hangman banner" />
+
             <div class="text_but_list">
                 <h5 class="fancy_title">The beginnings</h5>
                 <p>Hangman was first whispered into existence during a stormy night in the 18th century, when a group of 
