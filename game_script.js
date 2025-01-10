@@ -291,7 +291,7 @@ function handleClick(){
 
         case GuessResult.CORRECT_FINAL:
             game_ended = true
-            message.textContent = "Congratulation! You Won!"
+            message.textContent = "Congratulations! You Won!"
             break;
 
         case GuessResult.INCORRECT_FINAL:
