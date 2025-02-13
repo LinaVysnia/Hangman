@@ -1,5 +1,7 @@
 Semi-hosted on https://codepen.io/LinaVysnia/pen/xbKYjeW
 
-To do: 
-add external file loading
-add full word guessing option + instahang
+## To-Do List ✅
+
+- [ ] Add external file loading
+- [ ] Add full word guessing option + insta-hang if guessed wrong
+- [ ] Would be nice to have CRUD for word options
